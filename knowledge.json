@@ -1,0 +1,51 @@
+{
+  "profile": {
+    "name": "Davis Lozda",
+    "subtitle": "Data & Analytics Leader",
+    "avatar": "avatar.jpeg"
+  },
+  "nodes": [
+    {
+      "id": "e1",
+      "type": "experience",
+      "icon": "users",
+      "title": "Leadership & Strategy",
+      "markdown": "## Cross-Functional Leadership\n\nI operate at the intersection of strategy and delivery, with 7+ years across e-commerce and regulated financial services.\n\n### Working with People\n- **Team Leadership:** Currently leading a 6-person data engineering team, mentoring engineers and BI analysts.\n- **Stakeholder Discovery:** Running discovery sessions with C-level executives, marketing, and operations to surface data opportunities and translate them into actionable platform roadmaps.\n- **Executive Communication:** Distilling complex technical risk and revenue reconciliation into clear, executive-level summaries."
+    },
+    {
+      "id": "p1",
+      "type": "project",
+      "icon": "database",
+      "title": "Database Reconstruction",
+      "markdown": "## Platform Modernization\n\nLeading a company-wide initiative to reconstruct the data platform from fragmented, intuition-led legacy ETL to a trusted, self-service architecture.\n\n### Architectural Highlights\n- **Medallion Architecture:** Architecting a governed Bronze/Silver/Gold DWH on Amazon Redshift.\n- **Unified Data Model:** Designed a unified customer-level gold data model integrating order, financial, and CRM data across multiple e-commerce brands into a single trusted decision layer.\n- **Governance:** Implementing data contracts, schema governance, metric ownership, and active PII remediation."
+    },
+    {
+      "id": "a1",
+      "type": "innovation",
+      "icon": "bot",
+      "title": "AI & Automation",
+      "markdown": "## Democratizing Data via AI\n\nI believe in opening up data systems to automation and AI so that teams can move faster.\n\n### Initiatives\n- **Self-Service AI Analytics:** Launched governed, natural-language-to-SQL analytics tools with per-team service accounts and documented schemas, empowering non-technical users to 'talk to their data'.\n- **Engineering Automation:** Championing AI-assisted workflows in daily engineering, using Claude Code for codebase analysis and automated documentation to drastically speed up delivery pipelines."
+    },
+    {
+      "id": "e2",
+      "type": "experience",
+      "icon": "landmark",
+      "title": "Regulated Finance",
+      "markdown": "## Financial Services Analytics\n\nBefore e-commerce, I led data migration and integration in a regulated, publicly listed lending environment (AS DelfinGroup).\n\n### Key Contributions\n- **Predictive Scoring:** Built and deployed predictive models for leasing risk assessment.\n- **Compliance & Security:** Led massive PII audits, ensuring compliance in highly regulated environments through credential vaulting and access control matrices.\n- **Financial Analytics:** Engineered enterprise Power BI dashboards with complex DAX logic for high-value operational and financial reporting."
+    },
+    {
+      "id": "s1",
+      "type": "skill",
+      "icon": "cpu",
+      "title": "Core Tech Stack",
+      "markdown": "## Technology Ecosystem\n\nA strategic approach to technology evaluation and implementation.\n\n- **Cloud & DWH:** Amazon Redshift, PostgreSQL, Snowflake evaluation, AWS S3\n- **Orchestration & Engineering:** Apache Airflow, Python, Advanced SQL, Docker, Git\n- **Analytics & BI:** Enterprise Power BI (Semantic models, DAX, XMLA), CLV/LTV Modeling with XGBoost\n- **Advisory:** Structured vendor evaluations for CDP and Cloud Data Platforms."
+    }
+  ],
+  "links": [
+    { "source": "root", "target": "e1" },
+    { "source": "root", "target": "p1" },
+    { "source": "root", "target": "a1" },
+    { "source": "root", "target": "e2" },
+    { "source": "root", "target": "s1" }
+  ]
+}
