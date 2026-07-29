@@ -1,0 +1,10 @@
+[
+  {
+    "id": "sapiens",
+    "title": "Sapiens: A Brief History of Humankind",
+    "author": "Yuval Noah Harari",
+    "image": "sapiens.jpg",
+    "summary": "A deep dive into how human cooperation and shared fictions allowed us to scale societies.",
+    "content": "This is just a start, and I have read at least one book! \n\n\"Sapiens\" completely reframed how I think about human cooperation and the stories we invent to scale our societies. It is incredibly relevant to how we build teams, establish data governance, and align companies today. When we create metrics or build data platforms, we are essentially building shared fictions that help massive groups of people coordinate towards a single goal."
+  }
+]

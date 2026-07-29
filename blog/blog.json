@@ -1,0 +1,9 @@
+[
+  {
+    "id": "hello-world",
+    "title": "Hello World - The Beginning",
+    "date": "August 2026",
+    "summary": "Setting up my digital garden and deciding on an architecture.",
+    "content": "I'm setting up this space as a dedicated sheet to document my journey in data engineering, AI, and leadership. \n\nI plan to use this repo as a playground to write my thoughts, experiments, and architectural decisions. I want this to grow more and more over time. Stay tuned for updates!"
+  }
+]

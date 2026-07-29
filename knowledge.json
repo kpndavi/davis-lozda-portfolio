@@ -1,51 +1,91 @@
 {
   "profile": {
     "name": "Davis Lozda",
-    "subtitle": "Data & Analytics Leader",
+    "subtitle": "Data Platforms · Governance · BI · AI Enablement",
     "avatar": "avatar.jpeg"
   },
   "nodes": [
     {
-      "id": "e1",
-      "type": "experience",
-      "icon": "users",
-      "title": "Leadership & Strategy",
-      "markdown": "## Cross-Functional Leadership\n\nI operate at the intersection of strategy and delivery, with 7+ years across e-commerce and regulated financial services.\n\n### Working with People\n- **Team Leadership:** Currently leading a 6-person data engineering team, mentoring engineers and BI analysts.\n- **Stakeholder Discovery:** Running discovery sessions with C-level executives, marketing, and operations to surface data opportunities and translate them into actionable platform roadmaps.\n- **Executive Communication:** Distilling complex technical risk and revenue reconciliation into clear, executive-level summaries."
+      "id": "start",
+      "type": "intro",
+      "icon": "user",
+      "title": "About Me",
+      "markdown": "## Welcome\n\nI lead teams and build trusted data platforms that turn fragmented business data into reliable decisions, scalable analytics, and safe automation.\n\nI operate at the intersection of strategy and delivery, with 7+ years across e-commerce and regulated financial services.\n\n### Current Scope\n- **Role:** Data Engineering Lead at The Customization Group (TCG / Picanova Baltics)\n- **Team:** Leading a team of 6 data/ETL engineers\n- **Mission:** Driving a company-wide modernization from legacy ETL to a governed Redshift medallion architecture."
     },
     {
-      "id": "p1",
+      "id": "outcomes",
+      "type": "impact",
+      "icon": "target",
+      "title": "Selected Outcomes",
+      "markdown": "## Selected Outcomes\n\n- **Unified Data Model:** Designed a customer-level gold data model integrating order, financial, and CRM data across multiple e-commerce brands (150+ governed columns).\n- **Data Security:** Led enterprise-wide PII discovery and remediation across 400+ tables, implementing access-control matrices and automated monitoring.\n- **Team Building:** Built and mentored a 6-person data engineering team, establishing cross-team SLAs and data contracts.\n- **Predictive Impact:** Built CLV/LTV XGBoost models feeding marketing value-bid optimization.\n- **AI Enablement:** Launched governed self-service analytics via a natural-language-to-SQL tool with per-team service accounts."
+    },
+    {
+      "id": "platform",
       "type": "project",
       "icon": "database",
-      "title": "Database Reconstruction",
-      "markdown": "## Platform Modernization\n\nLeading a company-wide initiative to reconstruct the data platform from fragmented, intuition-led legacy ETL to a trusted, self-service architecture.\n\n### Architectural Highlights\n- **Medallion Architecture:** Architecting a governed Bronze/Silver/Gold DWH on Amazon Redshift.\n- **Unified Data Model:** Designed a unified customer-level gold data model integrating order, financial, and CRM data across multiple e-commerce brands into a single trusted decision layer.\n- **Governance:** Implementing data contracts, schema governance, metric ownership, and active PII remediation."
+      "title": "Data Platform Transformation",
+      "markdown": "## Multi-Brand Data Platform Modernization\n\n**Problem:** The organization relied on fragmented legacy ETL, duplicated transformations, and inconsistent definitions across multiple e-commerce brands.\n\n**My Scope:** I owned the platform modernization strategy, migration sequencing, and architecture gap analysis.\n\n**Action:** \n- Architected a governed Bronze/Silver/Gold data warehouse on Amazon Redshift, orchestrated by Apache Airflow.\n- Ran stakeholder discovery sessions with C-level, marketing, and finance to translate business needs into prioritized data-model decisions.\n- Documented data contracts, schema governance, and metric ownership.\n\n**Outcome:** A single trusted decision layer that serves enterprise Power BI reporting and predictive analytics, eliminating data silos between brands."
     },
     {
-      "id": "a1",
+      "id": "ai",
       "type": "innovation",
       "icon": "bot",
-      "title": "AI & Automation",
-      "markdown": "## Democratizing Data via AI\n\nI believe in opening up data systems to automation and AI so that teams can move faster.\n\n### Initiatives\n- **Self-Service AI Analytics:** Launched governed, natural-language-to-SQL analytics tools with per-team service accounts and documented schemas, empowering non-technical users to 'talk to their data'.\n- **Engineering Automation:** Championing AI-assisted workflows in daily engineering, using Claude Code for codebase analysis and automated documentation to drastically speed up delivery pipelines."
+      "title": "Governed AI Data Products",
+      "markdown": "## Governed AI Data Products\n\n**Problem:** Non-technical teams struggled to get fast answers from raw data, while engineering was bottlenecked by ad-hoc queries.\n\n**My Scope:** End-to-end strategy and implementation of AI-assisted self-serve analytics.\n\n**Action:**\n- Launched a natural-language-to-SQL tool directly integrated with our Redshift warehouse.\n- Established strict governance: curated data marts, restricted service accounts, and transparent pipeline statuses.\n- Championed AI-assisted workflows within the engineering team (e.g., using Claude Code for codebase analysis and automated documentation).\n\n**Outcome:** Empowered business users to safely 'talk to their data' while significantly shortening codebase analysis and implementation cycles for the engineering team."
     },
     {
-      "id": "e2",
+      "id": "finance",
       "type": "experience",
       "icon": "landmark",
-      "title": "Regulated Finance",
-      "markdown": "## Financial Services Analytics\n\nBefore e-commerce, I led data migration and integration in a regulated, publicly listed lending environment (AS DelfinGroup).\n\n### Key Contributions\n- **Predictive Scoring:** Built and deployed predictive models for leasing risk assessment.\n- **Compliance & Security:** Led massive PII audits, ensuring compliance in highly regulated environments through credential vaulting and access control matrices.\n- **Financial Analytics:** Engineered enterprise Power BI dashboards with complex DAX logic for high-value operational and financial reporting."
+      "title": "Governance & Risk Analytics",
+      "markdown": "## Financial Risk & Data Governance\n\n**Problem:** Operating in a highly regulated, publicly listed lending environment (AS DelfinGroup) required rigorous data governance and robust predictive capabilities.\n\n**My Scope:** Led data migration, CRM analytics, and predictive modeling initiatives.\n\n**Action:**\n- Engineered enterprise Power BI solutions using advanced DAX and DirectQuery optimization.\n- Built predictive scoring models for leasing risk assessment.\n- Executed massive PII audits and built access control matrices with credential vaulting.\n\n**Outcome:** Delivered stakeholder-ready KPI logic and secure, compliant data pipelines that passed strict regulatory scrutiny."
     },
     {
-      "id": "s1",
-      "type": "skill",
-      "icon": "cpu",
-      "title": "Core Tech Stack",
-      "markdown": "## Technology Ecosystem\n\nA strategic approach to technology evaluation and implementation.\n\n- **Cloud & DWH:** Amazon Redshift, PostgreSQL, Snowflake evaluation, AWS S3\n- **Orchestration & Engineering:** Apache Airflow, Python, Advanced SQL, Docker, Git\n- **Analytics & BI:** Enterprise Power BI (Semantic models, DAX, XMLA), CLV/LTV Modeling with XGBoost\n- **Advisory:** Structured vendor evaluations for CDP and Cloud Data Platforms."
+      "id": "experience",
+      "type": "cv",
+      "icon": "briefcase",
+      "title": "Experience & CV",
+      "markdown": "## Professional Experience\n\n### Picanova Baltics (The Customization Group)\n**Data Engineering Lead** *(2025 – Present)*\n- Promoted to lead a 6-person team after a strong first year.\n- Driving company-wide data platform modernization (Redshift, Airflow).\n- Designed unified customer gold data model.\n\n**Senior BI Analyst** *(Jul 2024 – 2025)*\n- Led BI development, delivering enterprise Power BI solutions.\n- Established data quality and change-management standards.\n\n**BI Analyst** *(Sep 2021 – Nov 2022)*\n- Streamlined ETL pipelines and built Python/VBA automations.\n\n### AS DelfinGroup (Banknote & VIZIA)\n**Senior Data Analyst / Data Engineer** *(Nov 2022 – Jun 2024)*\n- Led Redshift warehouse migration and CRM analytics build.\n- Integrated external data sources (Facebook Ads, SharePoint).\n\n**Senior Data Analyst** *(Jul 2019 – Feb 2021)*\n- Delivered predictive scoring models for leasing risk assessment."
+    },
+    {
+      "id": "music",
+      "type": "personal",
+      "icon": "music",
+      "title": "Music",
+      "markdown": "## 🎵 Music\n\nI am always listening to something while building data platforms. Here is my active, public Spotify playlist:\n\n<iframe style=\"border-radius:12px; margin-top:20px;\" src=\"https://open.spotify.com/embed/playlist/5tgL7d6W2Ep8JXo2k2wXc9?utm_source=generator\" width=\"100%\" height=\"352\" frameBorder=\"0\" allowfullscreen=\"\" allow=\"autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture\" loading=\"lazy\"></iframe>"
+    },
+    {
+      "id": "sports",
+      "type": "personal",
+      "icon": "activity",
+      "title": "Sports",
+      "markdown": "## 🏃 Sports\n\nWhen I'm not behind a screen architecting pipelines, I'm usually out running. It's how I clear my head and solve the hardest problems.\n\nCheck out my latest runs and **[follow me on Strava!](https://www.strava.com/athletes/62282117)**"
+    },
+    {
+      "id": "books",
+      "type": "personal",
+      "icon": "book",
+      "title": "Books",
+      "url": "books/"
+    },
+    {
+      "id": "blog",
+      "type": "personal",
+      "icon": "pen-tool",
+      "title": "Blog",
+      "url": "blog/"
     }
   ],
   "links": [
-    { "source": "root", "target": "e1" },
-    { "source": "root", "target": "p1" },
-    { "source": "root", "target": "a1" },
-    { "source": "root", "target": "e2" },
-    { "source": "root", "target": "s1" }
+    { "source": "root", "target": "start" },
+    { "source": "root", "target": "outcomes" },
+    { "source": "root", "target": "platform" },
+    { "source": "root", "target": "ai" },
+    { "source": "root", "target": "finance" },
+    { "source": "root", "target": "experience" },
+    { "source": "root", "target": "music" },
+    { "source": "root", "target": "sports" },
+    { "source": "root", "target": "books" },
+    { "source": "root", "target": "blog" }
   ]
 }

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Davis Lozda | Bookshelf</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@0.292.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked@11.1.1/marked.min.js"></script>
+    <style>
+        :root {
+            --bg-base: #050505;
+            --glass-bg: rgba(20, 20, 20, 0.4);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --text-main: #f0f0f0;
+            --text-muted: #888;
+            --font-sans: 'Inter', sans-serif;
+            --font-serif: 'Instrument Serif', serif;
+        }
+        body {
+            margin: 0; background-color: var(--bg-base); color: var(--text-main);
+            font-family: var(--font-sans); overflow-x: hidden;
+        }
+        .ambient-glow { position: fixed; width: 60vw; height: 60vw; border-radius: 50%; filter: blur(120px); z-index: -1; opacity: 0.15; top: -10%; left: -10%; background: radial-gradient(circle, #4a90e2 0%, transparent 70%); }
+        .top-nav { position: fixed; top: 30px; left: 30px; display: flex; z-index: 100; }
+        .nav-btn {
+            display: flex; align-items: center; gap: 8px; padding: 10px 20px;
+            background: var(--glass-bg); border: 1px solid var(--glass-border);
+            border-radius: 30px; color: var(--text-main); text-decoration: none;
+            font-size: 0.9rem; backdrop-filter: blur(10px); transition: all 0.3s ease;
+        }
+        .nav-btn:hover { background: rgba(255,255,255,0.1); transform: translateY(-2px); }
+        
+        .header { text-align: center; margin-top: 100px; color: #fff; padding: 0 20px; }
+        .header h1 { font-family: var(--font-serif); font-size: 3.5rem; margin-bottom: 15px; font-weight: normal; }
+        .header p { color: var(--text-muted); font-size: 1.1rem; }
+        .header a { color: #4a90e2; text-decoration: none; }
+        .header a:hover { text-decoration: underline; }
+        
+        .list-container { max-width: 800px; margin: 50px auto; padding: 0 20px; }
+        .list-item { 
+            display: flex; gap: 25px; background: rgba(30, 30, 30, 0.3); border: 1px solid var(--glass-border);
+            border-radius: 16px; padding: 25px; margin-bottom: 25px; cursor: pointer; transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        .list-item:hover { transform: translateY(-5px); background: rgba(40, 40, 40, 0.5); border-color: rgba(255,255,255,0.2); }
+        .list-item img { width: 120px; height: 180px; object-fit: cover; border-radius: 8px; box-shadow: 0 8px 16px rgba(0,0,0,0.5); }
+        .list-content { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+        .list-content h3 { margin: 0 0 5px 0; font-size: 1.8rem; font-family: var(--font-serif); font-weight: normal; }
+        .list-content .author { color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 15px; }
+        .list-content p { color: #ccc; font-size: 1.05rem; line-height: 1.6; margin: 0; }
+        
+        /* Modal */
+        .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 200; backdrop-filter: blur(10px); opacity: 0; transition: opacity 0.3s ease; }
+        .modal-overlay.show { display: block; opacity: 1; }
+        .modal { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: var(--bg-base); padding: 50px; border-radius: 20px; width: 90%; max-width: 650px; border: 1px solid var(--glass-border); color: #fff; max-height: 85vh; overflow-y: auto; box-shadow: 0 25px 50px rgba(0,0,0,0.5); }
+        .close-modal { position: absolute; top: 25px; right: 25px; cursor: pointer; color: var(--text-muted); transition: color 0.2s; }
+        .close-modal:hover { color: #fff; }
+        
+        #modal-content { line-height: 1.7; font-size: 1.05rem; color: #ddd; }
+        #modal-content p { margin-bottom: 1.5em; }
+        
+        @media (max-width: 600px) {
+            .list-item { flex-direction: column; align-items: center; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <div class="ambient-glow"></div>
+    <div class="top-nav">
+        <a href="../" class="nav-btn"><i data-lucide="arrow-left"></i> Back to Portfolio</a>
+    </div>
+
+    <div class="header">
+        <h1>Bookshelf</h1>
+        <p>Inspired by <a href="https://x.com/laumalasa" target="_blank">@laumalasa</a>. My reading journey and takeaways.</p>
+    </div>
+
+    <div class="list-container" id="book-list"></div>
+
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal">
+            <i data-lucide="x" class="close-modal" id="close-modal"></i>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+    
+    <script>
+        lucide.createIcons();
+        
+        const overlay = document.getElementById('modal-overlay');
+        const modalContent = document.getElementById('modal-content');
+        const closeBtn = document.getElementById('close-modal');
+
+        function openModal(book) {
+            modalContent.innerHTML = `
+                <h2 style="font-family: var(--font-serif); font-size: 2.5rem; margin-bottom: 5px; font-weight: normal;">${book.title}</h2>
+                <div style="color: var(--text-muted); text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.05em; margin-bottom: 30px;">${book.author}</div>
+                <div>${marked.parse(book.content)}</div>
+            `;
+            overlay.classList.add('show');
+        }
+
+        function closeModal() {
+            overlay.classList.remove('show');
+        }
+
+        closeBtn.onclick = closeModal;
+        overlay.onclick = (e) => { if(e.target === overlay) closeModal(); };
+        document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeModal(); });
+
+        fetch('books.json?v=2').then(r=>r.json()).then(data => {
+            const container = document.getElementById('book-list');
+            data.forEach(book => {
+                const item = document.createElement('div');
+                item.className = 'list-item';
+                item.innerHTML = `
+                    <img src="${book.image}" alt="${book.title}">
+                    <div class="list-content">
+                        <h3>${book.title}</h3>
+                        <div class="author">${book.author}</div>
+                        <p>${book.summary}</p>
+                    </div>
+                `;
+                item.onclick = () => openModal(book);
+                container.appendChild(item);
+            });
+        });
+    </script>
+</body>
+</html>

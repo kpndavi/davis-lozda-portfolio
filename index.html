@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alex Rivera | Neural Graph</title>
+    <title>Davis Lozda | Data & Analytics Leader</title>
+    <meta name="description" content="I lead teams and build trusted data platforms that turn fragmented business data into reliable decisions, scalable analytics, and safe automation.">
+    <meta property="og:title" content="Davis Lozda | Data & Analytics Leader">
+    <meta property="og:description" content="I lead teams and build trusted data platforms that turn fragmented business data into reliable decisions, scalable analytics, and safe automation.">
+    <meta property="og:type" content="website">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@0.292.0"></script>
     <script src="https://d3js.org/d3.v7.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked@11.1.1/marked.min.js"></script>
     <style>
         :root {
             --bg-base: #050505;
@@ -167,6 +171,17 @@
         .node-info { display: flex; flex-direction: column; }
         .node-tag { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); }
         .node-title { font-size: 0.95rem; font-weight: 500; }
+        
+        /* Node Focus for Accessibility & Click Feel */
+        .node-content:focus {
+            outline: 2px solid rgba(255,255,255,0.8);
+            outline-offset: 2px;
+        }
+        
+        .node-content:active {
+            transform: scale(0.95);
+            background: rgba(60, 60, 60, 0.9);
+        }
 
         .interaction-hint {
             position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%);
@@ -288,17 +303,26 @@
     <div class="top-nav">
         <a href="https://linkedin.com/in/davislozda" target="_blank" class="nav-btn"><i data-lucide="linkedin"></i> LinkedIn</a>
         <a href="mailto:davislozda@gmail.com" class="nav-btn"><i data-lucide="mail"></i> Email</a>
-        <a href="Davis_Lozda_CV.docx" download class="nav-btn primary"><i data-lucide="download"></i> Download CV</a>
+        <a href="Davis_Lozda_CV.pdf" download class="nav-btn primary"><i data-lucide="download"></i> Download CV</a>
     </div>
 
-    <div id="loading"><div class="spinner"></div> INITIATING NEURAL GRAPH</div>
+    <div id="loading"><div class="spinner"></div> INITIATING PLATFORM</div>
+
+    <!-- Static Fallback for crawlers / no-js -->
+    <noscript>
+        <div style="padding: 40px;">
+            <h1>Davis Lozda - Data & Analytics Leader</h1>
+            <p>I lead teams and build trusted data platforms.</p>
+            <p><a href="Davis_Lozda_CV.pdf">Download CV</a></p>
+        </div>
+    </noscript>
 
     <div id="graph-container" style="opacity: 0;">
         <svg id="links-svg"></svg>
         <div id="nodes-container"></div>
     </div>
 
-    <div class="interaction-hint">Grab nodes to move. Click nodes to read.</div>
+    <div class="interaction-hint">Select a topic to explore my work.</div>
 
     <!-- The Knowledge Panel -->
     <div id="knowledge-panel">
@@ -329,8 +353,15 @@
 
         closeBtn.addEventListener('click', closePanelFunc);
 
+        // Accessibility: Escape closes panel
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && panel.classList.contains('open')) {
+                closePanelFunc();
+            }
+        });
+
         // Fetch Knowledge Data
-        fetch(`knowledge.json?v=${new Date().getTime()}`)
+        fetch('knowledge.json?v=3')
             .then(res => res.json())
             .then(data => {
                 const loadingElement = document.getElementById('loading');
@@ -389,7 +420,7 @@
                         `;
                     } else {
                         return `
-                            <div class="node-content">
+                            <div class="node-content" tabindex="0" role="button">
                                 <div class="node-icon"><i data-lucide="${d.icon}"></i></div>
                                 <div class="node-info">
                                     <span class="node-tag">${d.type}</span>
@@ -404,11 +435,23 @@
                     .on("drag", dragged)
                     .on("end", dragended));
 
-            // Handle Node Clicks
+            // Handle Node Clicks and Keyboard execution
             node.on("click", (event, d) => {
-                // Prevent opening panel if we were just dragging
                 if (event.defaultPrevented || d.type === "root") return; 
-                openPanel(d.markdown);
+                if (d.url) {
+                    window.location.href = d.url;
+                } else {
+                    openPanel(d.markdown);
+                }
+            });
+            node.on("keydown", (event, d) => {
+                if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    if (d.type !== "root") {
+                        if (d.url) window.location.href = d.url;
+                        else openPanel(d.markdown);
+                    }
+                }
             });
 
             simulation.on("tick", () => {
