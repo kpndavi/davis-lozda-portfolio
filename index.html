@@ -114,42 +114,25 @@
         
         @media (max-width: 600px) {
             .top-nav {
-                top: 15px;
-                right: 15px;
-                left: 15px;
+                top: 20px;
+                right: 20px;
+                flex-wrap: wrap;
                 justify-content: center;
-                gap: 8px;
-            }
-            .nav-btn {
-                padding: 8px 12px;
-                font-size: 0.8rem;
+                gap: 10px;
+                width: 100%;
+                padding: 0 20px;
             }
             .root-node h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
             .root-node p {
-                font-size: 0.8rem;
+                font-size: 0.9rem;
                 text-align: center;
                 padding: 0 10px;
             }
             .avatar-ring {
-                width: 90px;
-                height: 90px;
-                margin-bottom: 10px;
-            }
-            .node-content {
-                padding: 8px 15px 8px 8px;
-            }
-            .node-icon {
-                width: 32px;
-                height: 32px;
-            }
-            .node-icon i {
-                width: 14px;
-                height: 14px;
-            }
-            .node-title {
-                font-size: 0.85rem;
+                width: 100px;
+                height: 100px;
             }
         }
 
@@ -426,9 +409,9 @@
             const nodesContainer = d3.select("#nodes-container");
 
             const isMobile = width < 600;
-            const linkDistance = isMobile ? 120 : 250;
-            const chargeStrength = isMobile ? -500 : -1000;
-            const collideRadius = isMobile ? 50 : 90;
+            const linkDistance = isMobile ? 180 : 250;
+            const chargeStrength = isMobile ? -800 : -1000;
+            const collideRadius = isMobile ? 70 : 90;
 
             const simulation = d3.forceSimulation(nodesData)
                 .force("link", d3.forceLink(linksData).id(d => d.id).distance(linkDistance))
