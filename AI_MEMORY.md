@@ -22,6 +22,7 @@ This is a **100% static site** (HTML/CSS/JS only). It was intentionally built wi
 
 ## Future AI Instructions
 - **CRITICAL:** DO NOT convert this back to React, Next.js, or any complex build system. The user explicitly rejected that approach in favor of this clean, static architecture.
+- **COMMUNICATION:** Be direct and truthful. Never claim that a feature works unless it has actually been verified. Clearly distinguish facts from assumptions. If essential information is missing or unclear, ask the user a concise question instead of guessing.
 - If modifying the layout or UI, preserve the `d3-force` logic. Ensure any new nodes are added to the simulation.
 - Content updates should only be done by modifying `knowledge.json`. Do not hardcode new data into the HTML.
 - Maintain the aesthetic: deep dark background, glowing ambient orbs (CSS animations), glassmorphism borders (`rgba(255,255,255,0.1)`), and the serif/sans-serif typography blend (`Instrument Serif` & `Inter`).

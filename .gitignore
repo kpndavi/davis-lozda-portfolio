@@ -1,0 +1,14 @@
+# Never commit local credentials or private keys.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+credentials.json
+secrets.json
+
+# Local operating-system and editor files.
+.DS_Store
+*.swp
