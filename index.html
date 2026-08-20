@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com https://d3js.org https://cdn.jsdelivr.net https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://cloudflareinsights.com; object-src 'none'; base-uri 'none'; form-action 'self'; upgrade-insecure-requests">
     <title>Davis Lozda | Data & Analytics Leader</title>
     <meta name="description" content="I lead teams and build trusted data platforms that turn fragmented business data into reliable decisions, scalable analytics, and safe automation.">
     <meta property="og:title" content="Davis Lozda | Data & Analytics Leader">
@@ -321,7 +323,7 @@
     <div class="noise-overlay"></div>
 
     <div class="top-nav">
-        <a href="https://linkedin.com/in/davislozda" target="_blank" class="nav-btn"><i data-lucide="linkedin"></i> LinkedIn</a>
+        <a href="https://linkedin.com/in/davislozda" target="_blank" rel="noopener noreferrer" class="nav-btn"><i data-lucide="linkedin"></i> LinkedIn</a>
         <a href="mailto:davislozda@gmail.com" class="nav-btn"><i data-lucide="mail"></i> Email</a>
         <a href="Davis_Lozda_CV.pdf" download class="nav-btn primary"><i data-lucide="download"></i> Download CV</a>
     </div>
@@ -521,5 +523,8 @@
             });
         }
     </script>
+    <!-- Cloudflare Web Analytics -->
+    <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"51da617a9d094d1fb246dfa897570ece"}'></script>
+    <!-- End Cloudflare Web Analytics -->
 </body>
 </html>
